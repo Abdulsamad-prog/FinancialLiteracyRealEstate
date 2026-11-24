@@ -23,6 +23,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.example.financialliteracyrealestate.ui.dashboard.DashboardScreen
 
 sealed class Screen(val route: String, val label: String, val icon: ImageVector) {
     data object Dashboard : Screen("dashboard", "Home", Icons.Filled.Home)
@@ -72,7 +73,7 @@ fun AppNavigation() {
             modifier = Modifier.padding(innerPadding)
         ) {
             composable(Screen.Dashboard.route) {
-                PlaceholderScreen("Dashboard & Cashflow (R2)")
+                DashboardScreen()
             }
             composable(Screen.Goals.route) {
                 PlaceholderScreen("Property Savings Goals (R3)")
