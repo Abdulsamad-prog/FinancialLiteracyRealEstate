@@ -23,6 +23,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.example.financialliteracyrealestate.ui.calculator.CalculatorScreen
 import com.example.financialliteracyrealestate.ui.dashboard.DashboardScreen
 import com.example.financialliteracyrealestate.ui.savings.SavingsGoalsScreen
 
@@ -90,7 +91,7 @@ fun AppNavigation() {
                 )
             }
             composable(Screen.Calculator.route) {
-                PlaceholderScreen("Mortgage & ROI Calculator (R4)")
+                CalculatorScreen()
             }
             composable(Screen.Learn.route) {
                 PlaceholderScreen("Financial Literacy Hub (R5)")
