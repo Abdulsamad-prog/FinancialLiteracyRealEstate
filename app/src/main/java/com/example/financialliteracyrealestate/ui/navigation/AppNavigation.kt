@@ -24,6 +24,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.financialliteracyrealestate.ui.dashboard.DashboardScreen
+import com.example.financialliteracyrealestate.ui.savings.SavingsGoalsScreen
 
 sealed class Screen(val route: String, val label: String, val icon: ImageVector) {
     data object Dashboard : Screen("dashboard", "Home", Icons.Filled.Home)
@@ -76,7 +77,17 @@ fun AppNavigation() {
                 DashboardScreen()
             }
             composable(Screen.Goals.route) {
-                PlaceholderScreen("Property Savings Goals (R3)")
+                SavingsGoalsScreen(
+                    onNavigateBack = {
+                        navController.navigate(Screen.Dashboard.route) {
+                            popUpTo(navController.graph.findStartDestination().id) {
+                                saveState = true
+                            }
+                            launchSingleTop = true
+                            restoreState = true
+                        }
+                    }
+                )
             }
             composable(Screen.Calculator.route) {
                 PlaceholderScreen("Mortgage & ROI Calculator (R4)")
